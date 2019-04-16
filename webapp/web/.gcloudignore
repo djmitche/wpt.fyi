@@ -1,0 +1,10 @@
+# Don't upload test data, package config, etc. to AppEngine.
+components/test/
+static/24278ab617/
+static/wptd-metrics/
+test/
+.eslintrc.json
+README.md
+package-lock.json
+package.json
+wct.conf.json
