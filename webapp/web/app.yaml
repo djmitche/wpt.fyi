@@ -14,13 +14,13 @@ default_expiration: "1d"
 handlers:
 # Remote API
 - url: /_ah/remote_api
-  script: _go_app
+  script: auto
 # Special dynamic components:
 - url: /components/wpt-env-flags.js
-  script: _go_app
+  script: auto
   secure: always
 - url: /node_modules/.*
-  script: _go_app
+  script: auto
   secure: always
 # Static files:
 - url: /static
@@ -50,11 +50,11 @@ handlers:
 
 # Admin-only pages:
 - url: /admin/.*
-  script: _go_app
+  script: auto
   secure: always
   login: admin
 
 # Everything else (templates & APIs):
 - url: /.*
-  script: _go_app
+  script: auto
   secure: always

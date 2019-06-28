@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/Hexcles/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )
 

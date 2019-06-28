@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	gclog "cloud.google.com/go/logging"
-	log "github.com/Hexcles/logrus"
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/appengine"
 	gaelog "google.golang.org/appengine/log"
 	mrpb "google.golang.org/genproto/googleapis/api/monitoredres"

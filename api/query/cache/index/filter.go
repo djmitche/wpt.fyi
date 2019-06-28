@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	log "github.com/Hexcles/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/web-platform-tests/wpt.fyi/api/query"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )

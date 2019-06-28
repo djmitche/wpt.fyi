@@ -62,7 +62,7 @@ matrix:
     # master branch deployments
     - if: (type = push) AND (branch = master)
       env:
-      - DEPLOY_STAGING_TARGET=webapp/app
+      - DEPLOY_STAGING_TARGET=webapp
       - MAKE_TEST_TARGET=go_large_test # Run integration tests after webapp deployment.
       - MAKE_TEST_FLAGS="STAGING=true"
     - if: (type = push) AND (branch = master)
