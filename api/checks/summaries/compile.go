@@ -15,7 +15,7 @@ import (
 
 	mapset "github.com/deckarep/golang-set"
 
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v26/github"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )
 
