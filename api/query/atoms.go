@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )
 
@@ -161,7 +161,7 @@ func (l AbstractLink) BindToRuns(runs ...shared.TestRun) ConcreteQuery {
 		Timeout: time.Second * 5,
 	}
 
-	metadata, _ := shared.GetMetadataResponse(runs, netClient, log.StandardLogger(), shared.MetadataArchiveURL)
+	metadata, _ := shared.GetMetadataResponse(runs, netClient, logrus.StandardLogger(), shared.MetadataArchiveURL)
 	metadataMap := shared.PrepareLinkFilter(metadata)
 
 	return Link{
