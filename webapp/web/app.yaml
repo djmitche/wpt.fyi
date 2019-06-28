@@ -31,8 +31,8 @@ handlers:
   upload: ../service-worker-installer.js
   secure: always
 - url: /service-worker-uninstaller.js
-  static_files: service-worker-uninstaller.js
-  upload: service-worker-uninstaller.js
+  static_files: ../service-worker-uninstaller.js
+  upload: ../service-worker-uninstaller.js
   secure: always
 - url: /favicon.ico
   static_files: ../static/favicon.ico
@@ -40,11 +40,11 @@ handlers:
   secure: always
 # Static files that change often (i.e. our own code).
 - url: /components
-  static_dir: components
+  static_dir: ../components
   expiration: 10m
   secure: always
 - url: /views
-  static_dir: views
+  static_dir: ../views
   expiration: 10m
   secure: always
 

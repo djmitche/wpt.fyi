@@ -12,7 +12,7 @@ import (
 	"google.golang.org/appengine"
 )
 
-func init() {
+func main() {
 	// webapp.RegisterRoutes has a catch-all, so needs to go last.
 	api.RegisterRoutes()
 	azure.RegisterRoutes()
@@ -22,8 +22,6 @@ func init() {
 	screenshot.RegisterRoutes()
 	taskcluster.RegisterRoutes()
 	webapp.RegisterRoutes()
-}
 
-func main() {
 	appengine.Main()
 }
