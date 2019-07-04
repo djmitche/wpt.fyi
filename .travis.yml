@@ -48,7 +48,7 @@ matrix:
     # pr branch deployments
     - if: type = pull_request
       env:
-      - DEPLOY_PR_STAGING_TARGET=webapp/web
+      - DEPLOY_PR_STAGING_TARGET=webapp
     - if: type = pull_request
       env:
       - DEPLOY_PR_STAGING_TARGET=results-processor
