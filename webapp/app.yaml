@@ -4,7 +4,7 @@
 
 runtime: go111
 instance_class: F4_1G
-main: web
+main: webapp/web
 
 inbound_services:
 - warmup

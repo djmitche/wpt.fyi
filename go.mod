@@ -31,3 +31,7 @@ require (
 	gopkg.in/src-d/go-billy.v4 v4.3.0
 	gopkg.in/src-d/go-git.v4 v4.12.0
 )
+
+replace github.com/web-platform-tests/wpt.fyi => ./
+replace github.com/web-platform-tests/wpt.fyi/api => ./api
+replace github.com/web-platform-tests/wpt.fyi/shared => ./shared
