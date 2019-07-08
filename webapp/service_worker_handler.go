@@ -7,13 +7,11 @@ package webapp
 import (
 	"fmt"
 	"net/http"
-	"path"
-	"path/filepath"
 	"regexp"
-	"runtime"
 	"strings"
 	"text/template"
 
+	"github.com/gobuffalo/packr"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 	"google.golang.org/appengine"
 )
@@ -21,10 +19,10 @@ import (
 var swTemplate *template.Template
 
 func init() {
-	_, filename, _, _ := runtime.Caller(0)
-	dir := filepath.Dir(filename)
-	file := path.Join(dir, "templates/service-worker.js")
-	swTemplate = template.Must(template.ParseFiles(file))
+	box := packr.NewBox("./templates")
+	if contents, err := box.FindString("service-worker.js"); err == nil {
+		swTemplate = template.Must(swTemplate.Parse(contents))
+	}
 }
 
 // NOTE(lukebjerring): If tweaking service worker locally, change to

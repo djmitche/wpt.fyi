@@ -6,11 +6,26 @@ package webapp
 
 import (
 	"html/template"
+	"strings"
 
+	"github.com/gobuffalo/packr"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )
 
-var templates = template.Must(template.ParseGlob("templates/*.html"))
+var templates *template.Template
+
+func init() {
+	templates = template.New("templates")
+	box := packr.NewBox("./templates")
+	for _, item := range box.List() {
+		if strings.HasSuffix(item, ".html") {
+			if contents, err := box.FindString(item); err == nil {
+				parsed := template.Must(templates.Parse(contents))
+				templates.AddParseTree(item, parsed.Tree)
+			}
+		}
+	}
+}
 
 // RegisterRoutes adds the route handlers for the webapp.
 func RegisterRoutes() {

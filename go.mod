@@ -9,6 +9,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/dgryski/go-farm v0.0.0-20190423205320-6a90982ecee2
 	github.com/go-yaml/yaml v2.1.0+incompatible
+	github.com/gobuffalo/packr v1.30.1
 	github.com/golang/mock v1.3.1
 	github.com/google/go-github/v26 v26.0.9
 	github.com/google/uuid v1.1.1

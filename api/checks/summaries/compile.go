@@ -13,17 +13,29 @@ import (
 
 	mapset "github.com/deckarep/golang-set"
 
+	"github.com/gobuffalo/packr"
 	"github.com/google/go-github/v26/github"
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )
 
-var templates = template.Must(
-	template.
+var templates *template.Template
+
+func init() {
+	templates = template.
 		New("all.md").
 		Funcs(template.FuncMap{
 			"escapeMD": escapeMD,
-		}).
-		ParseGlob("./*.md"))
+		})
+	box := packr.NewBox("./")
+	for _, item := range box.List() {
+		if strings.HasSuffix(item, ".md") {
+			if contents, err := box.FindString(item); err == nil {
+				parsed := template.Must(templates.Parse(contents))
+				templates.AddParseTree(item, parsed.Tree)
+			}
+		}
+	}
+}
 
 // escapeMD returns the escaped MD equivalent of the plain text data s.
 func escapeMD(s string) string {

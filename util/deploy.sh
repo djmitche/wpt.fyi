@@ -46,9 +46,11 @@ esac
 # Ensure dependencies are installed.
 if [[ -z "${QUIET}" ]]; then info "Installing dependencies..."; fi
 cd ${WPTD_PATH}
+APP_YAML_PATH="${APP_PATH}"
 if [[ "${APP_PATH}" == "webapp" ]]; then
   make webapp_deps || fatal "Error installing deps"
   make webapp_node_modules_prune || fatal "Error pruning node_modules"
+  APP_YAML_PATH="webapp/main"
 fi
 
 # Create a name for this version
@@ -84,7 +86,7 @@ then
 else
     QUIET_FLAG=""
 fi
-COMMAND="gcloud app deploy ${PROMOTE_FLAG} ${QUIET_FLAG} --version=${VERSION} ${APP_PATH}"
+COMMAND="gcloud app deploy ${PROMOTE_FLAG} ${QUIET_FLAG} --version=${VERSION} ${APP_YAML_PATH}"
 
 if [[ -z "${QUIET}" ]]
 then
