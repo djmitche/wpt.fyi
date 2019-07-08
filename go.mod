@@ -33,5 +33,7 @@ require (
 )
 
 replace github.com/web-platform-tests/wpt.fyi => ./
+
 replace github.com/web-platform-tests/wpt.fyi/api => ./api
+
 replace github.com/web-platform-tests/wpt.fyi/shared => ./shared

@@ -16,7 +16,6 @@ revisions/
 results-processor/
 webdriver/
 client-secret.json.enc
-*.md
 Dockerfile
 LICENSE
 Makefile

@@ -6,21 +6,11 @@ package webapp
 
 import (
 	"html/template"
-	"path"
-	"path/filepath"
-	"runtime"
 
 	"github.com/web-platform-tests/wpt.fyi/shared"
 )
 
-var templates *template.Template
-
-func init() {
-	_, filename, _, _ := runtime.Caller(0)
-	dir := filepath.Dir(filename)
-	glob := path.Join(dir, "templates/*.html")
-	templates = template.Must(template.ParseGlob(glob))
-}
+var templates = template.Must(template.ParseGlob("templates/*.html"))
 
 // RegisterRoutes adds the route handlers for the webapp.
 func RegisterRoutes() {
